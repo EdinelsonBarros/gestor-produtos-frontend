@@ -6,12 +6,19 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
+import { provideHttpClient } from '@angular/common/http';
+import { TelaCadastroComponent } from './tela-cadastro/tela-cadastro.component';
+import { RouterLink } from '@angular/router';
+import { LoginRoutingModule } from './login-routing.module';
 
 
 
 @NgModule({
   declarations: [
-    TelaLoginComponent
+    TelaLoginComponent,
+    TelaCadastroComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -20,6 +27,13 @@ import {MatButtonModule} from '@angular/material/button';
     MatSelectModule,
     MatButtonModule, 
     MatIconModule,
-  ]
+    ReactiveFormsModule,
+    LoginRoutingModule,
+    RouterLink,
+    
+   
+    
+  ],
+  providers: [provideHttpClient()]
 })
 export class LoginModule { }

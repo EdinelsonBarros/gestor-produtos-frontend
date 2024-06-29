@@ -1,18 +1,30 @@
 <div class="example-container">
 
-      <h1>Gestão de produtos</h1>
-      
-      <mat-form-field class="loginItems">
-        <mat-label>Usuario</mat-label>
-        <input matInput>
-      </mat-form-field>
-    
-      <mat-form-field class="loginItems">
-        <mat-label>Senha</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'">
-        <button mat-icon-button matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-      </mat-form-field>
-      <button mat-flat-button color="primary" class="loginItems">Acessar</button>
-    </div>
+  <h1>Login</h1>
+  <form class="example-container" [formGroup]="formUsuario" (ngSubmit)="logar()">
+    <mat-form-field class="loginItems">
+      <mat-label>Usuario</mat-label>
+      <input matInput formControlName="userName">
+    </mat-form-field>
+
+    <mat-form-field class="loginItems">
+      <mat-label>Senha</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+
+      <button type="button" mat-icon-button matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+
+    </mat-form-field>
+
+
+
+    <button type="submit" mat-flat-button color="primary" class="loginItems">
+      Acessar
+    </button>
+  </form>
+  <a class="span-cadastro" routerLink="/register">Cadastrar-se</a>
+
+  <p>{{token}}</p>
+</div>
