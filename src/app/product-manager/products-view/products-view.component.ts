@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { ProductReponse } from './../interfaces/productsReponse';
+import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../services/product.service';
 
 export interface PeriodicElement {
   name: string;
@@ -26,7 +28,25 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './products-view.component.html',
   styleUrl: './products-view.component.scss'
 })
-export class ProductsViewComponent {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+export class ProductsViewComponent implements OnInit{
+  displayedColumns: string[] = ['productName',  'costPrice', 'salePrice', 'editar', 'excluir'];
   dataSource = ELEMENT_DATA;
+  products: ProductReponse[] = [];
+
+  constructor(private productService: ProductService){}
+
+  ngOnInit(): void {
+     this.getProducts();
+  }
+
+  getProducts(){
+    this.productService.findAllProducts().subscribe(
+     (products) => this.products = products
+    )
+  }
+
+
+
+
+
 }
