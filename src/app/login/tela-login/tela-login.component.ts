@@ -19,7 +19,7 @@ export class TelaLoginComponent {
 
   dataSingin: LoginDTO = {
     login: "",
-    password: ","
+    password: ""
   };
 
   token!: LoginResponse;

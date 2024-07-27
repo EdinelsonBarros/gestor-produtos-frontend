@@ -1,0 +1,19 @@
+<app-tool-bar></app-tool-bar>
+<h1>Cadastro de produto</h1>
+<form class="example-container" [formGroup]="formProduct" (ngSubmit)="registeProduct()">
+      <mat-form-field appearance="fill">
+            <mat-label>Nome do produto</mat-label>
+            <input matInput placeholder="" type="text" formControlName="productName">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+            <mat-label>Preço de custo</mat-label>
+            <input matInput placeholder="0,00" type="number" formControlName="costPrice">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+            <mat-label>Preço de venda</mat-label>
+            <input matInput placeholder="0,00" type="number" formControlName="salePrice">
+      </mat-form-field>
+      <button type="submit" mat-flat-button color="primary" class="loginItems">
+            Registrar
+      </button>
+</form>

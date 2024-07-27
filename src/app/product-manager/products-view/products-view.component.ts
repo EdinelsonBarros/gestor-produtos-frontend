@@ -1,4 +1,4 @@
-import { ProductReponse } from './../interfaces/productsReponse';
+import { ProductResponse } from '../interfaces/productsResponse';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 
@@ -31,7 +31,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class ProductsViewComponent implements OnInit{
   displayedColumns: string[] = ['productName',  'costPrice', 'salePrice', 'editar', 'excluir'];
   dataSource = ELEMENT_DATA;
-  products: ProductReponse[] = [];
+  products: ProductResponse[] = [];
 
   constructor(private productService: ProductService){}
 

@@ -1,5 +1,7 @@
-import { NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE,LOCALE_ID, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt'
 
 import { ProductManagerRoutingModule } from './product-manager-routing.module';
 import { ProductsViewComponent } from './products-view/products-view.component';
@@ -8,20 +10,34 @@ import { provideHttpClient } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ToolBarComponent } from './tool-bar/tool-bar.component';
+import { ProductRegisterComponent } from './product-register/product-register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
-
+registerLocaleData(localePt, 'pt');
 @NgModule({
   declarations: [
     ProductsViewComponent,
-    ToolBarComponent
+    ToolBarComponent,
+    ProductRegisterComponent
   ],
   imports: [
     CommonModule,
     ProductManagerRoutingModule,
     MatTableModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule, 
+    MatButtonModule, 
+    MatIconModule,
+    ReactiveFormsModule
   ],
-  providers: [provideHttpClient()]
+  providers: [
+    provideHttpClient(),
+    {provide: LOCALE_ID, useValue: 'pt' },
+    {provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
+  ]
 })
 export class ProductManagerModule { }

@@ -1,0 +1,30 @@
+.sucess{
+      background-color: whitesmoke;
+      color: rgb(26, 190, 26);
+      height: 50px;
+      width: 100%;
+      padding: 0px 5px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      font-weight: bold;
+}
+
+.erro{
+      background-color: whitesmoke;
+      color: rgb(222, 47, 90);
+      height: 50px;
+      width: 100%;
+      padding: 0px 5px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;  
+      span{
+
+            font-weight: bold;
+      }
+      span > mat-icon{
+            margin-right: 10px;
+            font-weight: bold;
+      }
+}

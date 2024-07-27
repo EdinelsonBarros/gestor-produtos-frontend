@@ -1,0 +1,29 @@
+header{
+      display: flex;
+      justify-content: right;
+      align-items: center;
+      padding: 10px;
+      background-color: rgb(79, 139, 230);
+
+}
+
+div {
+      margin-left: 30px;
+      a{
+
+            margin: 0px;
+            color: white;
+            font-weight: bold; 
+            &:hover{
+                  cursor: pointer;
+            }
+      }
+}
+
+button{
+      margin: 0px 30px;
+      color: #d5d5d5;
+      &:hover{
+            color: white;
+      }
+}

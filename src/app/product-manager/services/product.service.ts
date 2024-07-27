@@ -1,22 +1,31 @@
 import { Injectable } from '@angular/core';
 import { Observable, map, tap } from 'rxjs';
-import { ProductReponse } from '../interfaces/productsReponse';
+import { ProductResponse } from '../interfaces/productsResponse';
 import { HttpClient } from '@angular/common/http';
+import { ProductRequest } from '../interfaces/productRequest';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  baseUrl = "http://localhost:8080/product";
+  baseUrl: string = "http://localhost:8080/product";
 
   constructor(private http: HttpClient) { }
 
-  findAllProducts(): Observable<ProductReponse[]>{
-   return this.http.get<ProductReponse[]>(`${this.baseUrl}/findall`,{
+  findAllProducts(): Observable<ProductResponse[]>{
+   return this.http.get<ProductResponse[]>(`${this.baseUrl}/findall`,{
     headers: {
       'Authorization': `${sessionStorage.getItem("acess-token")}`
     }
    })      
+  }
+
+  productRegister(product: ProductRequest){
+    return this.http.post(`${this.baseUrl}/create`, product,{
+      headers: {
+        'Authorization': `${sessionStorage.getItem("acess-token")}`
+      }
+    })
   }
 }

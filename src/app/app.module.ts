@@ -7,6 +7,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { LoginModule } from './login/login.module';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { SnackBarTemplateComponent } from './snack-bar-template/snack-bar-template.component';
+import { MatSnackBarAction, MatSnackBarActions, MatSnackBarLabel } from '@angular/material/snack-bar';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -14,14 +17,19 @@ import { HomeComponent } from './home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,   
+    HomeComponent,
+    SnackBarTemplateComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     LoginModule,
-    RouterOutlet, 
-    RouterLink, 
+    RouterOutlet,
+    RouterLink,
+    MatIconModule,
+    MatSnackBarLabel,
+    MatSnackBarActions,
+    MatSnackBarAction
   ],
   providers: [
     provideAnimationsAsync()
