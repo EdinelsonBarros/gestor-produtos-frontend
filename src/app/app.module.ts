@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { SnackBarTemplateComponent } from './snack-bar-template/snack-bar-template.component';
 import { MatSnackBarAction, MatSnackBarActions, MatSnackBarLabel } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
+import { DiaologScreenTemplateComponent } from './diaolog-screen-template/diaolog-screen-template.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -19,6 +21,7 @@ import { MatIconModule } from '@angular/material/icon';
     AppComponent,
     HomeComponent,
     SnackBarTemplateComponent,
+    DiaologScreenTemplateComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule,
     MatSnackBarLabel,
     MatSnackBarActions,
-    MatSnackBarAction
+    MatSnackBarAction,
+    MatDialogModule
   ],
   providers: [
     provideAnimationsAsync()

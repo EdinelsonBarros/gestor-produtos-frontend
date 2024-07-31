@@ -1,27 +1,8 @@
 import { ProductResponse } from '../interfaces/productsResponse';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-  {position: 10, name: 'Edinelson', weight: 20.1797, symbol: 'Ne'},
-];
+import { MatDialog } from '@angular/material/dialog';
+import { DiaologScreenTemplateComponent } from '../../diaolog-screen-template/diaolog-screen-template.component';
 
 @Component({
   selector: 'app-products-view',
@@ -30,10 +11,13 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class ProductsViewComponent implements OnInit{
   displayedColumns: string[] = ['productName',  'costPrice', 'salePrice', 'editar', 'excluir'];
-  dataSource = ELEMENT_DATA;
+  
   products: ProductResponse[] = [];
 
-  constructor(private productService: ProductService){}
+  constructor(
+    private productService: ProductService,
+    private dialog: MatDialog
+  ){}
 
   ngOnInit(): void {
      this.getProducts();
@@ -45,8 +29,13 @@ export class ProductsViewComponent implements OnInit{
     )
   }
 
-
-
-
+  openDilogDelete(product: ProductResponse){
+    this.dialog.open(DiaologScreenTemplateComponent,{
+      data:{
+        product: product
+        
+      }
+    })
+  }
 
 }

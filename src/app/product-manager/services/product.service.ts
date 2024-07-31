@@ -28,4 +28,13 @@ export class ProductService {
       }
     })
   }
+
+  productDelete(product: ProductResponse){
+    console.log(product.id)
+    return this.http.delete(`${this.baseUrl}/delete/${product.id}`,  {
+      headers: {
+        'Authorization': `${sessionStorage.getItem("acess-token")}`
+      }
+    })
+  }
 }

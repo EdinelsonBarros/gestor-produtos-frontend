@@ -37,7 +37,7 @@
                   <ng-container matColumnDef="excluir">
                     <th mat-header-cell *matHeaderCellDef> Excluir </th>
                     <td mat-cell *matCellDef="let element">
-                      <button mat-icon-button color="primary" aria-label="home">
+                      <button mat-icon-button color="primary" aria-label="home" (click)="openDilogDelete(element)">
 
                         <mat-icon class="delete">delete</mat-icon>
                       </button>

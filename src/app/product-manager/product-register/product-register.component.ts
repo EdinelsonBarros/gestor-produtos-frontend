@@ -22,9 +22,9 @@ constructor(
   private _snackBar: MatSnackBar
 ){}
 formProduct = new FormGroup({
-  productName: new FormControl(''),
-  costPrice: new FormControl(0),
-  salePrice: new FormControl(0)
+  productName: new FormControl('Coca Lata'),
+  costPrice: new FormControl(2.79),
+  salePrice: new FormControl(5.00)
 });
 
 

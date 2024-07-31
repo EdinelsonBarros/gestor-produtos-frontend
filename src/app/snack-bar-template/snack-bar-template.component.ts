@@ -16,7 +16,6 @@ import { MatSnackBarRef, MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar'
   styleUrl: './snack-bar-template.component.scss'
 })
 export class SnackBarTemplateComponent {
-  //snackBarRef = inject(MatSnackBarRef);
-
+  
   constructor(@Inject(MAT_SNACK_BAR_DATA) public data: any) { }
 }

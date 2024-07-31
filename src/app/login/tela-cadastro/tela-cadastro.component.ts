@@ -18,22 +18,22 @@ export class TelaCadastroComponent {
 
   registerForm = new FormGroup({
     userName: new FormControl(
-      '',
+      'edinelson',
       [Validators.required,
       Validators.minLength(3)]
     ),
     password: new FormControl(
-      '',
+      '123456',
       [Validators.required,
       Validators.minLength(6)]
     ),
     passwordConfirm: new FormControl(
-      '',
+      '123456',
       [Validators.required,
       Validators.minLength(6)]
     ),
     role: new FormControl(
-      '',
+      'Administrador',
       [Validators.required]
     )
 
