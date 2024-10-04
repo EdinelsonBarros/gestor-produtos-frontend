@@ -14,13 +14,16 @@ import { ProductRegisterComponent } from './product-register/product-register.co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { DialogScreenUpdateProductComponent } from './dialog-screen-update-product/dialog-screen-update-product.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 registerLocaleData(localePt, 'pt');
 @NgModule({
   declarations: [
     ProductsViewComponent,
     ToolBarComponent,
-    ProductRegisterComponent
+    ProductRegisterComponent,
+    DialogScreenUpdateProductComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +35,9 @@ registerLocaleData(localePt, 'pt');
     MatInputModule, 
     MatButtonModule, 
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    FormsModule
   ],
   providers: [
     provideHttpClient(),

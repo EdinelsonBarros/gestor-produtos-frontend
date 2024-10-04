@@ -1,15 +1,15 @@
+import { ProductRequest } from './../interfaces/ProductRequest';
 import { Injectable } from '@angular/core';
 import { Observable, map, tap } from 'rxjs';
-import { ProductResponse } from '../interfaces/productsResponse';
+import { ProductResponse } from '../interfaces/ProductsResponse';
 import { HttpClient } from '@angular/common/http';
-import { ProductRequest } from '../interfaces/productRequest';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  baseUrl: string = "http://localhost:8080/product";
+  baseUrl: string = "http://localhost:8085/product";
 
   constructor(private http: HttpClient) { }
 
@@ -21,6 +21,10 @@ export class ProductService {
    })      
   }
 
+  atualizarPagina(){
+    this.findAllProducts();
+  }
+
   productRegister(product: ProductRequest){
     return this.http.post(`${this.baseUrl}/create`, product,{
       headers: {
@@ -29,8 +33,15 @@ export class ProductService {
     })
   }
 
+  productUpdate(product: ProductResponse){
+    return this.http.put(`${this.baseUrl}/update/${product.id}`, product, {
+      headers: {
+        'Authorization': `${sessionStorage.getItem("acess-token")}`
+      }
+    })
+  }
+
   productDelete(product: ProductResponse){
-    console.log(product.id)
     return this.http.delete(`${this.baseUrl}/delete/${product.id}`,  {
       headers: {
         'Authorization': `${sessionStorage.getItem("acess-token")}`

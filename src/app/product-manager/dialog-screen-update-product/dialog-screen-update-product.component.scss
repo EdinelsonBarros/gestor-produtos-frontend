@@ -1,0 +1,25 @@
+.formUpdate{
+      height: 300px;
+      width: 300px;text-align: center;
+      h2{
+
+            font-size: 1.3rem;
+            margin:10px 0px 0px;
+      }
+      input{
+            height: 30px;
+            margin-top: 10px;
+      }
+      .actions{
+            display: flex;
+            justify-content: space-evenly;
+            #cancel{
+                  background-color: #d0d000;
+                  color: black;
+            }
+            #update{
+                  background-color: rgb(36, 103, 236);
+                  color: white;
+            }
+      }
+}

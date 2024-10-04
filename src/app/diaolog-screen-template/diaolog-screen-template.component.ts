@@ -1,13 +1,14 @@
-import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogContent } from '@angular/material/dialog';
+import { Component, inject, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogContent, MatDialogRef } from '@angular/material/dialog';
 import { ProductService } from '../product-manager/services/product.service';
 import { SnackBarTemplateComponent } from '../snack-bar-template/snack-bar-template.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ProductResponse } from '../product-manager/interfaces/ProductsResponse';
 
 @Component({
   selector: 'app-diaolog-screen-template',
   template: `
-  <h2>Confirma exclusão do produto {{product.product.productName}}</h2>
+  <h2>Confirma exclusão do produto {{data.product.productName}}</h2>
   <mat-dialog-actions>
   <button mat-button mat-dialog-close>Cancelar</button>
   <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="deleteProduct()">Excluir</button>
@@ -17,8 +18,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class DiaologScreenTemplateComponent {
 
+  readonly dialogRef = inject(MatDialogRef<DiaologScreenTemplateComponent>);
+  readonly data = inject<any>(MAT_DIALOG_DATA);
+
   constructor(
-    @Inject(MAT_DIALOG_DATA) public product: any,
+   // @Inject(MAT_DIALOG_DATA) public product: any,
     private productService: ProductService,
     private _snackBar: MatSnackBar
   ) { }
@@ -50,9 +54,12 @@ export class DiaologScreenTemplateComponent {
   }
 
   deleteProduct(){
-    console.log(this.product.product)
-    this.productService.productDelete(this.product.product).subscribe({
-      next: () => this.openSnackBarSucess(),
+    console.log(this.data.product)
+    this.productService.productDelete(this.data.product).subscribe({
+      next: () => {
+        this.openSnackBarSucess()
+        this.dialogRef.close(this.data.product.id)
+      },
       error: () => this.openSnackBarErro()
 
   })

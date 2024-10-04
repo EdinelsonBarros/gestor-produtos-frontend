@@ -1,7 +1,7 @@
+import { ProductRequest } from './../interfaces/ProductRequest';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ProductRequest } from '../interfaces/productRequest';
 import { ProductService } from '../services/product.service';
 import { SnackBarTemplateComponent } from '../../snack-bar-template/snack-bar-template.component';
 
